@@ -27,6 +27,7 @@
                         <li class="nav-item"><img class="menu_icon history" ><a href="/history" class="link">History List</a></li>
                         <li class="nav-item"><img class="menu_icon homepage" ><a href="/home" class="link">Home page</a></li>
                         <li class="nav-item"><img class="menu_icon author" ><a href="/author" class="link">About author</a></li>
+                        {%if page!=False%}
                         <li class="nav-item"><form method="POST" action="">
                             {{form.hidden_tag()}}
                             <div class="charts" >
@@ -39,6 +40,7 @@
                                 <a href="{{ url_for('download',id=product_id, format='json') }}">JSON</a>
                                 <a href="{{ url_for('download',id=product_id, format='xlsx') }}">XLSX</a>
                             </div></li>
+                        {%endif%}
                     </ul>
                 </nav>
             </div>
@@ -46,31 +48,32 @@
                 
             </div>
         </div>
-        <div class="content-review" data-product-id="{{ product_id }}">
-            <form action="/reviews/{{product_id}}" method="get" class="filter_form">
-                <label for="sort_by">Sort by:</label>
-                <select name="sort_by" id="sort_by">
-                    <option value="">None</option>
-                    <option value="date">Date</option>
-                    <option value="rating">Rating</option>
-                </select>
-    
-                <label for="filter_by">Filter by:</label>
-                <select name="filter_by" id="filter_by">
-                    <option value="">None</option>
-                    <option value="5_stars">5 Stars</option>
-                    <option value="recommend">Recommended</option>
-                </select>
-                <label for="comments_per_page">Comments per page:</label>
-                <select name="comments_per_page" id="comments_per_page">
-                    <option value="10">10</option>
-                    <option value="30">30</option>
-                    <option value="100">100</option>
-                </select>
-                <button type="submit">Apply</button>
-            </form>
-        </div>
+        
             {%if page!=False%}
+            <div class="content-review" data-product-id="{{ product_id }}">
+                <form action="/reviews/{{product_id}}" method="get" class="filter_form">
+                    <label for="sort_by">Sort by:</label>
+                    <select name="sort_by" id="sort_by">
+                        <option value="">None</option>
+                        <option value="date">Date</option>
+                        <option value="rating">Rating</option>
+                    </select>
+        
+                    <label for="filter_by">Filter by:</label>
+                    <select name="filter_by" id="filter_by">
+                        <option value="">None</option>
+                        <option value="5_stars">5 Stars</option>
+                        <option value="recommend">Recommended</option>
+                    </select>
+                    <label for="comments_per_page">Comments per page:</label>
+                    <select name="comments_per_page" id="comments_per_page">
+                        <option value="10">10</option>
+                        <option value="30">30</option>
+                        <option value="100">100</option>
+                    </select>
+                    <button type="submit">Apply</button>
+                </form>
+            </div>
                 {% for names,values in page.items() %}
                     <div class="container_review">
                         <h1>{{names}}</h1><br/>
