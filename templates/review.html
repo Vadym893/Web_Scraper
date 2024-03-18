@@ -47,9 +47,10 @@
             </div>
         </div>
         <div class="content-review" data-product-id="{{ product_id }}">
-            <form action="/" method="get">
+            <form action="/reviews/{{product_id}}" method="get" class="filter_form">
                 <label for="sort_by">Sort by:</label>
                 <select name="sort_by" id="sort_by">
+                    <option value="">None</option>
                     <option value="date">Date</option>
                     <option value="rating">Rating</option>
                 </select>
@@ -60,7 +61,12 @@
                     <option value="5_stars">5 Stars</option>
                     <option value="recommend">Recommended</option>
                 </select>
-    
+                <label for="comments_per_page">Comments per page:</label>
+                <select name="comments_per_page" id="comments_per_page">
+                    <option value="10">10</option>
+                    <option value="30">30</option>
+                    <option value="100">100</option>
+                </select>
                 <button type="submit">Apply</button>
             </form>
         </div>
@@ -129,7 +135,7 @@
                 });
             });
             const paginationContainer = document.getElementById('pagination-container');
-            const totalPages = Math.round({{length}}/10)
+            const totalPages = Math.round({{length}}/{{per_page}})
             console.log(totalPages)
             const product_id = "{{product_id}}";
             console.log(product_id)

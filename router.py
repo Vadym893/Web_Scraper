@@ -4,6 +4,7 @@ from form import Id_Form,Chart_check,Graph_exit
 import os
 import json
 import io
+import operator
 import csv
 import pandas as pd
 import matplotlib
@@ -90,18 +91,35 @@ def search():
 
 @app.route(f'/reviews/<product_id>',methods=['GET','POST'])
 def reviews(product_id):
-    
+    sort_by = request.args.get('sort_by')
+    filter_by = request.args.get('filter_by')
     page_number = request.args.get('page', default=1, type=int)
-    reviews_per_page = 10  # Set the number of reviews per pag
+    reviews_per_page = int(request.args.get('comments_per_page', 10))
     start_index = (page_number - 1) * reviews_per_page
     end_index = start_index + reviews_per_page
     data_scrap(product_id)
+    if sort_by == 'date':
+        sorted_reviews = sorted(all_search[product_id].items(), key=lambda x: x[1]['Published'])
+    elif sort_by == 'rating':
+        sorted_reviews = sorted(all_search[product_id].items(), key=lambda x: x[1]['Rating'])
+    else:
+        # Default sorting
+        sorted_reviews = all_search[product_id].items()
+
+    # Filter reviews based on the chosen criteria
+    if filter_by == '5_stars':
+        filtered_reviews = {key: value for key, value in sorted_reviews if value['Rating'] == '5/5'}
+    elif filter_by == 'recommend':
+        filtered_reviews = {key: value for key, value in sorted_reviews if '\nPolecam\n' in value['Recommend']}
+    else:
+        # Default filtering
+        filtered_reviews = dict(sorted_reviews)
     form =Chart_check()
-    reviews = {name: values for name, values in all_search[product_id].items() if start_index <= list(all_search[product_id].keys()).index(name) < end_index}
+    reviews = {name: values for name, values in filtered_reviews.items() if start_index <= list(filtered_reviews.keys()).index(name) < end_index}
     if request.method == 'POST':
         if form.validate_on_submit():
             return redirect(url_for("charts",product_id=product_id))
-    return render_template('review.html',form=form,page=reviews,product_id=product_id,length=len(all_search[product_id]))
+    return render_template('review.html',form=form,page=reviews,product_id=product_id,length=len(all_search[product_id]),per_page=reviews_per_page)
 @app.route(f'/charts/<product_id>',methods=['GET','POST'])
 def charts(product_id):
     form = Graph_exit()
