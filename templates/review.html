@@ -46,7 +46,24 @@
                 
             </div>
         </div>
-        <div class="content-review">
+        <div class="content-review" data-product-id="{{ product_id }}">
+            <form action="/" method="get">
+                <label for="sort_by">Sort by:</label>
+                <select name="sort_by" id="sort_by">
+                    <option value="date">Date</option>
+                    <option value="rating">Rating</option>
+                </select>
+    
+                <label for="filter_by">Filter by:</label>
+                <select name="filter_by" id="filter_by">
+                    <option value="">None</option>
+                    <option value="5_stars">5 Stars</option>
+                    <option value="recommend">Recommended</option>
+                </select>
+    
+                <button type="submit">Apply</button>
+            </form>
+        </div>
             {%if page!=False%}
                 {% for names,values in page.items() %}
                     <div class="container_review">
@@ -97,6 +114,9 @@
                 </div>
             {%endif%}
         </div>
+        <div class="pagination" id="pagination-container">
+            <!-- Pagination buttons will be displayed here -->
+        </div>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 var downloadButtons = document.querySelectorAll('.download-button');
@@ -108,6 +128,19 @@
                     });
                 });
             });
+            const paginationContainer = document.getElementById('pagination-container');
+            const totalPages = Math.round({{length}}/10)
+            console.log(totalPages)
+            const product_id = "{{product_id}}";
+            console.log(product_id)
+            for (let i = 1; i <= totalPages; i++) {
+                const button = document.createElement('button');
+                button.textContent = i;
+                button.addEventListener('click', () => {
+                    window.location.href = `/reviews/${product_id}?page=${i}`;
+                });
+                paginationContainer.appendChild(button);
+            }
         </script>
     </body>
 </html>

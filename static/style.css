@@ -314,7 +314,7 @@ button:active {
 	display: flex;
 	flex-direction: column;
 	justify-content: start;
-	padding: 3% 5%;
+	padding: 4% 5% 1% 5%;
     font-size: 1.2rem;
 }
 .advantage-item{
@@ -444,7 +444,8 @@ display: block;
 	margin-bottom: 15px;
 }
 .content>*{
-	transform: translateX(45px);
+	transform: translateX(30px);
+	transform: translateY(60px);
 	transition: transform 0.6s;
 }
 .downloads{
@@ -454,4 +455,10 @@ display: block;
 .download-option{
 	position: relative;
 	right: 8%;
+}
+.pagination{
+	position: relative;
+	left: 70%;
+	width: 30%;
+	bottom: 3%;
 }

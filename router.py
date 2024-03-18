@@ -90,13 +90,18 @@ def search():
 
 @app.route(f'/reviews/<product_id>',methods=['GET','POST'])
 def reviews(product_id):
+    
+    page_number = request.args.get('page', default=1, type=int)
+    reviews_per_page = 10  # Set the number of reviews per pag
+    start_index = (page_number - 1) * reviews_per_page
+    end_index = start_index + reviews_per_page
     data_scrap(product_id)
     form =Chart_check()
+    reviews = {name: values for name, values in all_search[product_id].items() if start_index <= list(all_search[product_id].keys()).index(name) < end_index}
     if request.method == 'POST':
         if form.validate_on_submit():
             return redirect(url_for("charts",product_id=product_id))
-    return render_template('review.html',form=form,page=all_search[product_id],product_id=product_id)
-
+    return render_template('review.html',form=form,page=reviews,product_id=product_id,length=len(all_search[product_id]))
 @app.route(f'/charts/<product_id>',methods=['GET','POST'])
 def charts(product_id):
     form = Graph_exit()
