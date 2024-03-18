@@ -1,0 +1,113 @@
+<html>
+    <head>
+        <title>Project</title>
+        <link href="{{url_for('static', filename = 'style.css')}}" rel="stylesheet">
+
+    </head>
+    <body>
+        <div class="container-header">
+            {% with messages=get_flashed_messages(with_categories=True)%}
+                {% if messages%}
+                    {%for kategory,message in messages%}
+                        <div class="alert alert-{{category}}">
+                            {{message}}
+                        </div>
+                    {%endfor%}
+                {%endif%}
+            {% endwith%}
+            <div class="logo">
+                <img class="logo-photo"></img>
+                <p class="logo_text"><span id="white_text">Made by</span> Pasechnik Vadym </p>
+            </div>
+            <div class="menu">
+                <h4 class="menu_text">Overview</h4>
+                <nav>
+                    <ul className="menu-list">
+                        <li class="nav-item"><img class="menu_icon search" ><a href="/search" class="link">Search by tag</a></li>
+                        <li class="nav-item"><img class="menu_icon history" ><a href="/history" class="link">History List</a></li>
+                        <li class="nav-item"><img class="menu_icon homepage" ><a href="/home" class="link">Home page</a></li>
+                        <li class="nav-item"><img class="menu_icon author" ><a href="/author" class="link">About author</a></li>
+                        <li class="nav-item"><form method="POST" action="">
+                            {{form.hidden_tag()}}
+                            <div class="charts" >
+                                <img class="menu_icon chart">{{form.chart_check(class='btn btn-outline-inf link')}}
+                            </div>
+                        </form></li>
+                        <li class="nav-item downloads"><button class="download-button">Download</button>
+                            <div class="download-options download-option">
+                                <a href="{{ url_for('download',id=product_id, format='csv') }}">CSV</a>
+                                <a href="{{ url_for('download',id=product_id, format='json') }}">JSON</a>
+                                <a href="{{ url_for('download',id=product_id, format='xlsx') }}">XLSX</a>
+                            </div></li>
+                    </ul>
+                </nav>
+            </div>
+            <div  class="account">
+                
+            </div>
+        </div>
+        <div class="content-review">
+            {%if page!=False%}
+                {% for names,values in page.items() %}
+                    <div class="container_review">
+                        <h1>{{names}}</h1><br/>
+                        <div class="about_author"><div class="author_info"><img class="user_photo"><p>{{values["Author"]}}</p><p class="recommendation-{% if  values["Recommend"][0] =="\nPolecam\n"%}green{% endif %}">{% if values["Recommend"][0] !=""%}{{values["Recommend"][0]}}{% endif%}</p><p>{{values["Rating"]}}</p><p>Wystawiono {{((values["Published"]).strip(","))}}{%if values["Usage_time"]!="None" %}{{values["Usage_time"]}} użytkowania{% endif%}</p></div><div class="likes_div"><p><img class="like likes">{{values["Likes"]}}<img class="dislike likes">{{values["Dislikes"]}}</p></div></div>
+                        <p>{{values["Text"]}}</p> 
+                        {%if values["Trusted_opinion"]!="None"%}
+                        <div class="trust_div">
+                            <img class="trusted_opinion">
+                            <div class="content">
+                                <p>{{values["Trusted_opinion"]}}</p>
+                            </div>
+                        </div>
+                        {%endif%}
+                        <div class="advantage">
+                            {% if values["Advantages"]|length!=0%}
+                            <div class="advantage-list">
+                                <h2 class="advantage_mark">Zalety</h2>
+                                {% for advantage in  values["Advantages"]%}
+                                    <div class="advantage-item"><img class="advantage_icon plus">{{advantage}}</div>
+                                {%endfor%}
+                            </div>
+                            {%endif%}
+                            {% if values["Disadvantages"]|length!=0%}
+                            <div class="advantage-list">
+                                <h2 class="advantage_mark">Wady</h2>
+                                {% for disadvantage in values["Disadvantages"]%}
+                                    <div class="advantage-item"><img class="advantage_icon minus">{{disadvantage}}</div>
+                                {%endfor%}
+                            </div>
+                            {%endif%}
+                        </div>
+                        {% if values["Comments"][0]["text"]%}
+                            {% for i in range(values["Comments"][0]["text"]|length) %}
+                            <div class="about_author comment"><div class="author_info"><img class="user_photo"><p>{{values["Comments"][0]["Authors"][i]}}</p><p>Wystawiono {{((values["Comments"][0]["Date"][i]).strip(","))}}</div></div>
+                                <p class="comments"> {{values["Comments"][0]["text"][i]}}</p>
+                            {% endfor%}
+                        {% endif%}
+                    </div>
+                {%endfor%}
+            {%else%}
+                <div class="container">
+                    <div class="message">
+                    <h1>No Such Comments or Page Found</h1>
+                    <p>We couldn't find the comments or page you were looking for.</p>
+                    <a href="/search" class="button-btn">Go Back</a>
+                    </div>
+                </div>
+            {%endif%}
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var downloadButtons = document.querySelectorAll('.download-button');
+                
+                downloadButtons.forEach(function(button) {
+                    button.addEventListener('click', function() {
+                        var options = this.nextElementSibling;
+                        options.classList.toggle('show');
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

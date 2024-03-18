@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Project</title>
+        <link href="{{url_for('static', filename = 'style.css')}}" rel="stylesheet">
+
+    </head>
+    <body>
+        <div class="container-header">
+            <div class="logo">
+                <img class="logo-photo"></img>
+                <p class="logo_text"><span id="white_text">Made by</span> Pasechnik Vadym </p>
+            </div>
+            <div class="menu">
+                <h4 class="menu_text">Overview</h4>
+                <nav>
+                    <ul className="menu-list">
+                        <li class="nav-item"><img class="menu_icon search" ><a href="/search" class="link">Search by tag</a></li>
+                        <li class="nav-item"><img class="menu_icon history" ><a href="/history" class="link">History List</a></li>
+                        <li class="nav-item"><img class="menu_icon homepage" ><a href="/home" class="link">Home page</a></li>
+                        <li class="nav-item"><img class="menu_icon author" ><a href="/author" class="link">About author</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div  class="account">
+                
+            </div>
+        </div>
+        <div class="container">
+            <div class="container">
+                <h1>Product Extraction Page</h1>
+                <form method="POST" action="">
+                    {{form.hidden_tag()}}
+                    <div class="form-group">
+                        {{form.id.label(class='inputLabel')}}
+                        {{form.id(class='inputLabel-control')}}
+                    </div>
+                    <div class="form-group">
+                        {{form.submit(class='btn btn-outline-info')}}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

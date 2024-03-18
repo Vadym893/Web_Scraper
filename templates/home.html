@@ -1,0 +1,106 @@
+
+<html>
+<head>
+    <title>Ceneo Web Scraper</title>
+    <link href="{{url_for('static', filename = 'style.css')}}" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .main-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .container {
+            width: 45%;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        h1, h2, h3 {
+            color: #007bff;
+        }
+        p {
+            line-height: 1.5;
+        }
+        ul, ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-header">
+        <div class="logo">
+            <img class="logo-photo"></img>
+            <p class="logo_text"><span id="white_text">Made by</span> Pasechnik Vadym </p>
+        </div>
+        <div class="menu">
+            <h4 class="menu_text">Overview</h4>
+            <nav>
+                <ul className="menu-list">
+                    <li class="nav-item"><img class="menu_icon search" ><a href="/search" class="link">Search by tag</a></li>
+                    <li class="nav-item"><img class="menu_icon history" ><a href="/history" class="link">History List</a></li>
+                    <li class="nav-item"><img class="menu_icon homepage" ><a href="/home" class="link">Home page</a></li>
+                    <li class="nav-item"><img class="menu_icon author" ><a href="/author" class="link">About author</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div  class="account">
+            
+        </div>
+    </div>
+    <header>
+        <h1>Ceneo Web Scraper</h1>
+    </header>
+    
+    div class="main-container">
+        <div class="container">
+            <h2>Project Description</h2>
+            <p>The Ceneo Web Scraper is a Flask-based web application designed to scrape reviews and provide statistics for specialized products from the online shop Ceneo. It allows users to search for products, retrieve reviews from other users, view statistical analysis of the reviews, and access the history of recent searches.</p>
+            
+            <h2>Application Operation</h2>
+            <p>The application utilizes web scraping techniques to extract data from Ceneo's product pages. It first requests the HTML content of the product page using the requests library. Then, it parses the HTML content using Beautiful Soup to extract relevant information such as product reviews, ratings, and descriptions. The extracted data is then processed and displayed to the user.</p>
+        </div>
+        
+        <div class="container">
+            <h2>Libraries Used</h2>
+            <ul>
+                <li>Flask: Used for building the web application.</li>
+                <li>Pandas: Utilized for data manipulation and analysis.</li>
+                <li>JSON: Used for handling data in JSON format.</li>
+                <li>io: Used for handling file input and output operations.</li>
+                <li>Math (a bit): Used for basic mathematical operations.</li>
+                <li>Beautiful Soup: Used for parsing HTML content.</li>
+                <li>re: Used for regular expression matching.</li>
+                <li>Requests: Used for making HTTP requests to fetch web pages.</li>
+            </ul>
+            
+            <h2>Applied Approaches</h2>
+            <p>The application follows these steps to perform its operations:</p>
+            <ol>
+                <li>User inputs the name or identifier of the product they want to search for.</li>
+                <li>The application sends a request to the Ceneo website, searching for the specified product.</li>
+                <li>It scrapes the product page for reviews, ratings, and other relevant information using Beautiful Soup.</li>
+                <li>The scraped data is processed and analyzed using Pandas and math libraries to generate statistics.</li>
+                <li>The results are displayed to the user, including a summary of reviews, average rating, and recent search history.</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>

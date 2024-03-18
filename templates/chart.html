@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Project</title>
+        <link href="{{url_for('static', filename = 'style.css')}}" rel="stylesheet">
+
+    </head>
+    <body>
+        <div class="container-header">
+            <div class="logo">
+                <img class="logo-photo"></img>
+                <p class="logo_text"><span id="white_text">Made by</span> Pasechnik Vadym </p>
+            </div>
+            <div class="menu">
+                <h4 class="menu_text">Overview</h4>
+                <nav>
+                    <ul className="menu-list">
+                        <li class="nav-item"><img class="menu_icon search" ><a href="/search" class="link">Search by tag</a></li>
+                        <li class="nav-item"><img class="menu_icon history" ><a href="/history" class="link">History List</a></li>
+                        <li class="nav-item"><img class="menu_icon homepage" ><a href="/home" class="link">Home page</a></li>
+                        <li class="nav-item"><img class="menu_icon author" ><a href="/author" class="link">About author</a></li>
+                        <li class="nav-item"><form method="POST" action="">
+                            {{form.hidden_tag()}}
+                            <div class="charts" >
+                                <img class="menu_icon return">{{form.exit(class='btn btn-outline-inf')}}
+                            </div>
+                        </form></li>
+                    </ul>
+                </nav>
+            </div>
+            <div  class="account">
+                
+            </div>
+        </div>
+        <div class="container">
+            <h1>Pie Chart - Share of Recommendations</h1>
+            <img src="{{ url_for('static', filename='pie_chart.png') }}" alt="Pie Chart">
+
+            <h1>Bar Chart - Number of Opinions by Star Rating</h1>
+            <img src="{{ url_for('static', filename='bar_chart.png') }}" alt="Bar Chart">
+        </div>
+    </body>
+</html>
