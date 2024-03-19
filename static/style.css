@@ -405,7 +405,7 @@ display: block;
 }
 .trust_div{
 	margin-bottom: 5%;
-	left: 95%;
+	left: 90%;
 	text-align: right;
 	position: relative;
 	display: flex;
@@ -458,7 +458,7 @@ display: block;
 }
 .pagination{
 	position: relative;
-	left: 70%;
+	left: 60%;
 	width: 30%;
 	bottom: 3%;
 }

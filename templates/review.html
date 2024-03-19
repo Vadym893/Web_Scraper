@@ -138,7 +138,7 @@
                 });
             });
             const paginationContainer = document.getElementById('pagination-container');
-            const totalPages = Math.round({{length}}/{{per_page}})
+            const totalPages = Math.floor({{length}}/{{per_page}})+1
             const sort_by = "{{ sort_by }}";
             const filter_by = "{{ filter_by }}";
             const comments_per_page = "{{per_page }}";

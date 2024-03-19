@@ -2,10 +2,12 @@ from flask import Flask,render_template,redirect,flash,url_for,request,send_file
 from project import backend
 from form import Id_Form,Chart_check,Graph_exit
 import os
+from datetime import datetime, timedelta
 import json
 import io
 import operator
 import csv
+import re
 import pandas as pd
 import matplotlib
 matplotlib.use('Agg')
@@ -24,6 +26,40 @@ def data_scrap(id):
     # Cache the result
     all_search[id] = result
     return result
+def parse_published_date(published_str):
+    if re.match(r"\d{1,2}\s+\w+\s+temu,?", published_str):
+        # For formats like "4 lata temu,"
+        print("re:",published_str)
+        words = published_str.split()
+        time_ago = int(words[0])
+        unit = words[1]
+        if unit == 'lata' or unit ==  "lat" :
+            years_ago = int(published_str.split()[0])
+            return datetime.now() - timedelta(days=years_ago * 365)
+        elif unit == 'tygodnie':
+            weeks_ago = int(published_str.split()[0])
+            return datetime.now() - timedelta(weeks=weeks_ago)
+        elif unit == 'miesiący' or unit=="miesiące" or unit=="miesięcy":
+            month_ago = int(published_str.split()[0])
+            return datetime.now()-timedelta(days=month_ago*30)
+        elif unit=="dni":
+            days_ago = int(published_str.split()[0])
+            return datetime.now() - timedelta(days=days_ago)
+    elif "dzisiaj" in published_str:
+        return datetime.now()
+    elif 'miesiąc temu,' in published_str or "miesiąc temu" in published_str:
+        print(published_str)
+        return datetime.now()-timedelta(days=30)
+    elif "wczoraj" in published_str:
+        return datetime.now() - timedelta(days=1)
+    elif "rok temu" in published_str or "rok temu," in published_str:
+        return datetime.now() - timedelta(days=365)
+    elif " przedwczoraj" in published_str:
+        return datetime.now() - timedelta(days=2)
+    else:
+        print("None:",published_str)
+        return None
+
 def history_data(all_search):
     for key,value in all_search.items():
         if value!=False:
@@ -101,7 +137,7 @@ def reviews(product_id):
         start_index = (page_number - 1) * reviews_per_page
         end_index = start_index + reviews_per_page
         if sort_by == 'date':
-            sorted_reviews = sorted(all_search[product_id].items(), key=lambda x: x[1]['Published'])
+            sorted_reviews = sorted(all_search[product_id].items(), key=lambda x: parse_published_date(x[1]['Published']), reverse=True)
         elif sort_by == 'rating':
             sorted_reviews = sorted(all_search[product_id].items(), key=lambda x: x[1]['Rating'])
         else:
@@ -139,7 +175,7 @@ def history():
 
 @app.route('/author')
 def author():
-    return "here will be author page"
+    return render_template("author.html")
 
 @app.route('/download',methods=['GET','POST'])
 def download():
