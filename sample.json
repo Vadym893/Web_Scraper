@@ -9,19 +9,19 @@
     "Comments": [
       {
         "text": [
-          "\nlata 1970 - 80, ulubiona marka badylarzy i cyganów.\n",
-          "\nVasyl - prawda, ale nie ten model tylko ten z \"wiecznym kalendarzem\". Wtedy był symbolem statusu społecznego\n",
-          "\nDo you still have the item for sale hope it,s does not have any stain or scratch email me with some photos val  jennifersmith4luv*****\n",
-          "\nNie ma już zegarków Orient, Seiko zabrało co swoje i teraz to są zegarki Epson i tyle. No może za wyjątkiem linii Orient Star.\n"
+          "\r\n                                lata 1970 - 80, ulubiona marka badylarzy i cyganów.\r\n                            ",
+          "\r\n                                Vasyl - prawda, ale nie ten model tylko ten z \"wiecznym kalendarzem\". Wtedy był symbolem statusu społecznego\r\n                            ",
+          "\r\n                                Do you still have the item for sale hope it,s does not have any stain or scratch email me with some photos val  jennifersmith4luv*****\r\n                            ",
+          "\r\n                                Nie ma już zegarków Orient, Seiko zabrało co swoje i teraz to są zegarki Epson i tyle. No może za wyjątkiem linii Orient Star.\r\n                            "
         ],
         "Authors": [
-          "\nvasyl\n",
-          "\nOlo\n",
-          "\nberry01\n",
-          "\nAlex\n"
+          "\r\n                                vasyl\r\n                            ",
+          "\r\n                                Olo\r\n                            ",
+          "\r\n                                berry01\r\n                            ",
+          "\r\n                                Alex\r\n                            "
         ],
         "Date": [
-          "3 lata temu",
+          "4 lata temu",
           "3 lata temu",
           "rok temu",
           "10 miesięcy temu"
@@ -164,10 +164,10 @@
     "Comments": [
       {
         "text": [
-          "\nSzafir to minerał, niedorozwoju !\n"
+          "\r\n                                Szafir to minerał, niedorozwoju !\r\n                            "
         ],
         "Authors": [
-          "\n+NIESPORCZAK\n"
+          "\r\n                                +NIESPORCZAK\r\n                            "
         ],
         "Date": [
           "2 lata temu"
@@ -191,7 +191,7 @@
   },
   "Review7": {
     "Id": "18495976",
-    "Published": "3 dni temu, ",
+    "Published": "4 dni temu, ",
     "Usage_time": "po tygodniu",
     "Author": "\nu...a",
     "Text": "Co tu dużo mówić ( pisać) ? Zegarek wzorowany na zegarkach z lat 50, 60 ubiegłego wieku - dla mnie bomba. Od zawsze podobały mi się zegarki tego typu. Ten kupiony przeze mnie oprócz automatycznego naciągu ma funkcję dokręcania za pomocą koronki - takiego właśnie szukałem. Ogólnie ocena 5/5.",
@@ -595,7 +595,7 @@
   },
   "Review23": {
     "Id": "18501723",
-    "Published": "dzisiaj, ",
+    "Published": "wczoraj, ",
     "Usage_time": "po tygodniu",
     "Author": "\ns...h",
     "Text": "Zegarek przepiękny chyba najładniejszy bambino ",
@@ -910,6 +910,29 @@
     "Trusted_opinion": "Opinia została napisana przez Użytkownika, który kupił produkt."
   },
   "Review35": {
+    "Id": "18505278",
+    "Published": "dzisiaj, ",
+    "Usage_time": "po 2 tygodniach",
+    "Author": "\nk...i",
+    "Text": "Super wygląd i jakość",
+    "Rating": "5/5",
+    "Comments": [
+      {
+        "text": [],
+        "Authors": [],
+        "Date": []
+      }
+    ],
+    "Likes": "0",
+    "Dislikes": "0",
+    "Recommend": [
+      "\nPolecam\n"
+    ],
+    "Advantages": [],
+    "Disadvantages": [],
+    "Trusted_opinion": "Opinia została napisana przez Użytkownika, który kupił produkt."
+  },
+  "Review36": {
     "Id": "17317948",
     "Published": "rok temu, ",
     "Usage_time": "po 5 dniach",
@@ -937,7 +960,7 @@
     "Disadvantages": [],
     "Trusted_opinion": "Opinia została napisana przez Użytkownika, który kupił produkt."
   },
-  "Review36": {
+  "Review37": {
     "Id": "16528734",
     "Published": "2 lata temu, ",
     "Usage_time": "po 3 dniach",
@@ -965,7 +988,7 @@
     "Disadvantages": [],
     "Trusted_opinion": "Opinia została napisana przez Użytkownika, który kupił produkt."
   },
-  "Review37": {
+  "Review38": {
     "Id": "15246161",
     "Published": "3 lata temu, ",
     "Usage_time": "po tygodniu",
@@ -993,7 +1016,7 @@
     "Disadvantages": [],
     "Trusted_opinion": "Opinia została napisana przez Użytkownika, który kupił produkt."
   },
-  "Review38": {
+  "Review39": {
     "Id": "17662165",
     "Published": "9 miesięcy temu, ",
     "Usage_time": "po 2 tygodniach",
@@ -1021,7 +1044,7 @@
     ],
     "Trusted_opinion": "Opinia została napisana przez Użytkownika, który kupił produkt."
   },
-  "Review39": {
+  "Review40": {
     "Id": "17537813",
     "Published": "10 miesięcy temu, ",
     "Usage_time": "po 5 dniach",
@@ -1049,7 +1072,7 @@
     "Disadvantages": [],
     "Trusted_opinion": "Opinia została napisana przez Użytkownika, który kupił produkt."
   },
-  "Review40": {
+  "Review41": {
     "Id": "14645064",
     "Published": "3 lata temu, ",
     "Usage_time": "po 2 tygodniach",
@@ -1077,7 +1100,7 @@
     "Disadvantages": [],
     "Trusted_opinion": "Opinia została napisana przez Użytkownika, który kupił produkt."
   },
-  "Review41": {
+  "Review42": {
     "Id": "18018575",
     "Published": "5 miesięcy temu, ",
     "Usage_time": "po 3 dniach",
@@ -1106,7 +1129,7 @@
     "Disadvantages": [],
     "Trusted_opinion": "Opinia została napisana przez Użytkownika, który kupił produkt."
   },
-  "Review42": {
+  "Review43": {
     "Id": "12604426",
     "Published": "4 lata temu, ",
     "Usage_time": "po 2 miesiącach",
@@ -1135,7 +1158,7 @@
     "Disadvantages": [],
     "Trusted_opinion": "Opinia została napisana przez Użytkownika, który kupił produkt."
   },
-  "Review43": {
+  "Review44": {
     "Id": "11611643",
     "Published": "5 lat temu, ",
     "Usage_time": "po tygodniu",
@@ -1158,7 +1181,7 @@
     "Disadvantages": [],
     "Trusted_opinion": "Opinia została napisana przez Użytkownika, który kupił produkt."
   },
-  "Review44": {
+  "Review45": {
     "Id": "16861005",
     "Published": "2 lata temu, ",
     "Usage_time": "po 3 tygodniach",
@@ -1181,7 +1204,7 @@
     "Disadvantages": [],
     "Trusted_opinion": "Opinia została napisana przez Użytkownika, który kupił produkt."
   },
-  "Review45": {
+  "Review46": {
     "Id": "16857142",
     "Published": "2 lata temu, ",
     "Usage_time": "po 3 dniach",
@@ -1204,7 +1227,7 @@
     "Disadvantages": [],
     "Trusted_opinion": "Opinia została napisana przez Użytkownika, który kupił produkt."
   },
-  "Review46": {
+  "Review47": {
     "Id": "15053849",
     "Published": "3 lata temu, ",
     "Usage_time": "po 2 miesiącach",
@@ -1232,7 +1255,7 @@
     "Disadvantages": [],
     "Trusted_opinion": "Opinia została napisana przez Użytkownika, który kupił produkt."
   },
-  "Review47": {
+  "Review48": {
     "Id": "11849158",
     "Published": "5 lat temu, ",
     "Usage_time": "po tygodniu",
@@ -1255,7 +1278,7 @@
     "Disadvantages": [],
     "Trusted_opinion": "Opinia została napisana przez Użytkownika, który kupił produkt."
   },
-  "Review48": {
+  "Review49": {
     "Id": "8538258",
     "Published": "6 lat temu",
     "Usage_time": "None",
@@ -1278,7 +1301,7 @@
     "Disadvantages": [],
     "Trusted_opinion": "None"
   },
-  "Review49": {
+  "Review50": {
     "Id": "8059916",
     "Published": "6 lat temu",
     "Usage_time": "None",

@@ -26,21 +26,22 @@ def data_scrap(id):
     return result
 def history_data(all_search):
     for key,value in all_search.items():
-        advantage_sum=0
-        disadvantage_sum=0
-        total_comments=0
-        total_score=0
-        for k,v in value.items():
-            total_comments+=1
-            if v["Advantages"]:
-                advantage_sum += 1
-    
-            if v["Disadvantages"]:
-                disadvantage_sum += 1
-            score_str = v["Rating"].replace(',', '.')  # Convert to float
-            score = float(score_str.split('/')[0])
-            total_score += score
-        history_info[key]= {"amount_of_comments": total_comments,"amount_of_advantages":advantage_sum,"amount_of disadvantages":disadvantage_sum,"Average_rating":round(total_score/total_comments,2) if total_comments!=0 else 0}
+        if value!=False:
+            advantage_sum=0
+            disadvantage_sum=0
+            total_comments=0
+            total_score=0
+            for k,v in value.items():
+                total_comments+=1
+                if v["Advantages"]:
+                    advantage_sum += 1
+        
+                if v["Disadvantages"]:
+                    disadvantage_sum += 1
+                score_str = v["Rating"].replace(',', '.')  # Convert to float
+                score = float(score_str.split('/')[0])
+                total_score += score
+            history_info[key]= {"amount_of_comments": total_comments,"amount_of_advantages":advantage_sum,"amount_of disadvantages":disadvantage_sum,"Average_rating":round(total_score/total_comments,2) if total_comments!=0 else 0}
 def chart_Data(object):
     def pie_data():
         recommend_counter={"Recommended":0, "Not Recommended":0}
@@ -119,7 +120,7 @@ def reviews(product_id):
         if request.method == 'POST':
             if form.validate_on_submit():
                 return redirect(url_for("charts",product_id=product_id))
-        return render_template('review.html',form=form,page=reviews,product_id=product_id,length=len(all_search[product_id]),per_page=reviews_per_page)
+        return render_template('review.html',form=form,page=reviews,product_id=product_id,length=len(all_search[product_id]),per_page=reviews_per_page,page_number=page_number,sort_by=sort_by,filter_by=filter_by)
     else:
         return render_template('review.html',form=form,page=all_search[product_id],product_id=product_id)
 @app.route(f'/charts/<product_id>',methods=['GET','POST'])

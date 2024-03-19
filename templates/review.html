@@ -139,6 +139,9 @@
             });
             const paginationContainer = document.getElementById('pagination-container');
             const totalPages = Math.round({{length}}/{{per_page}})
+            const sort_by = "{{ sort_by }}";
+            const filter_by = "{{ filter_by }}";
+            const comments_per_page = "{{per_page }}";
             console.log(totalPages)
             const product_id = "{{product_id}}";
             console.log(product_id)
@@ -146,7 +149,17 @@
                 const button = document.createElement('button');
                 button.textContent = i;
                 button.addEventListener('click', () => {
-                    window.location.href = `/reviews/${product_id}?page=${i}`;
+                    let url = `/reviews/${product_id}?page=${i}`;
+                    if (sort_by) {
+                        url += `&sort_by=${sort_by}`;
+                    }
+                    if (filter_by) {
+                        url += `&filter_by=${filter_by}`;
+                    }
+                    if (comments_per_page) {
+                        url += `&comments_per_page=${comments_per_page}`;
+                    }
+                    window.location.href = url;
                 });
                 paginationContainer.appendChild(button);
             }
