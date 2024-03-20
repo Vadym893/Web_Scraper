@@ -31,6 +31,7 @@ def backend(page_id):
     def find_review(id,page,dif,amount_of_comment,recommend,advantages):
         url = f"https://www.ceneo.pl/{id}/opinie-{page}"
         res=  requests.get(url)
+        print(url)
         soup =  BeautifulSoup(res.content, 'html.parser')
         post = soup.find('div', class_= 'js_product-reviews js_reviews-hook js_product-reviews-container')  
         i=0
